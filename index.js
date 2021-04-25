@@ -4,10 +4,10 @@ const app = express();
 
 app.use(express.json());
 
+const domainController = require('./controller/domainController');
+
 const PORT = 3000;
 
-app.get('/', (_request, response) => {
-  response.send();
-});
+app.use('/', domainController);
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

@@ -18,8 +18,13 @@ const findByDomainId = async (id) => await connection()
   .then((db) => db.collection(DOMAINS)
   .findOne(ObjectId(id)));
 
+const searchDomain = async (name) => await connection()
+.then((db) => db.collection(DOMAINS)
+  .findOne({domain: `domain.com/${name}`}));
+
 module.exports = {
   createNewDomain,
   getAllDomains,
   findByDomainId,
+  searchDomain,
 };
